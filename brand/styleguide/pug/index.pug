@@ -1,0 +1,127 @@
+doctype(doctype)
+
+html(lang="en")
+  head
+    //- Required meta tags
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+    //- Bootstrap CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.min.css", integrity="sha256-QUyqZrt5vIjBumoqQV0jM8CgGqscFfdGhN+nVCqX0vc=", crossorigin="anonymous")
+
+    //- Font Awesome
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=", crossorigin="anonymous")
+
+    //- Style guide styles (not part of your project)
+    link(rel="stylesheet" href="css/styleguide-styles.css")
+
+    //- Holder.JS (for placeholders)
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js", integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=", crossorigin="anonymous")
+
+  body.sg-body
+    include bootstrap-4/__bootstrap-4-index
+
+    include styleguide/__styleguide-navbar
+
+    .container-fluid
+      .row.row-offcanvas.row-offcanvas-left
+        .col.col-md-3.col-lg-2.sidebar-offcanvas#sg-offcanvas
+          .sg-sidebar
+            include styleguide/__styleguide-sidebar
+
+        .col.col-md-9.col-lg-10
+          .sg-content(style="padding-bottom:3rem;")
+            
+            //- Offcanvas toggle is in `__stylefuide-navbar.pug` (left side)
+
+            //- About
+            h2#about.sg-h2 About
+
+            include styleguide/__styleguide-about
+
+            //- Foundation
+            h2#foundation.sg-h2 Foundation
+
+            include styleguide/__styleguide-color-swatch
+            include styleguide/__styleguide-font-stacks
+
+            //- Basics
+            h2#basics.sg-h2 Basics
+
+            include styleguide/_headings
+            include styleguide/_text-elements
+            include styleguide/_address
+            include styleguide/_blockquote
+            include styleguide/_code
+            include styleguide/_lists
+            include styleguide/_tables
+            include styleguide/_images
+            include styleguide/_figures
+            include styleguide/_progress
+
+            //- Buttons
+            h2#buttons.sg-h2 Buttons
+            include styleguide/_buttons
+
+            //- Forms
+            h2#forms.sg-h2 Forms
+            include styleguide/_forms
+
+            //- Layout
+            h2#layout.sg-h2 Layout
+
+            include styleguide/_grid
+            include styleguide/_media-objects
+
+            //-Components
+            h2#components.sg-h2 Components
+
+            include styleguide/_alerts
+            include styleguide/_badge
+            include styleguide/_breadcrumb
+            include styleguide/_cards
+            include styleguide/_carousel
+            include styleguide/_dropdowns
+            include styleguide/_jumbotron
+            include styleguide/_list-groups
+            include styleguide/_navbars
+            include styleguide/_navs
+            include styleguide/_modal
+            include styleguide/_pagination
+            include styleguide/_popovers
+            include styleguide/_scrollspy
+            include styleguide/_tooltips
+
+    //- jQuery first, then Popper, then Bootstrap JS
+    
+    script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+      
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js", integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh", crossorigin="anonymous")     
+      
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/js/bootstrap.min.js", integrity="sha256-GIa8Vh3sfESnVB2CN3rYGkD/MklvMq0lmITweQxE1qU=", crossorigin="anonymous")
+      
+    script.
+      //-$('body').scrollspy({ target: '#navbar-example2' })
+
+      $(function () {
+        'use strict'
+        $('[data-toggle="popover"]').popover()
+      })
+
+      $(function () {
+        'use strict'
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+
+      $(function () {
+        'use strict'
+        $('[data-toggle="sg-offcanvas"]').on('click', function () {
+          $('.row-offcanvas').toggleClass('active')
+        })
+      })
+      
+      //- Prevent dummy links causing page to jump to top
+      $('[href="#"]').on('click', function (e) {
+        e.preventDefault();
+      });
+      
